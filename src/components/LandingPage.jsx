@@ -107,12 +107,12 @@ const LandingPage = () => {
               that make India a unique treasure trove of heritage and history.
             </p>
             <div className="flex space-x-4">
-              <button className="px-6 py-3 bg-indigo-900 text-white rounded-md hover:bg-indigo-800">
+              <a href="#explore" className="px-6 py-3 bg-indigo-900 text-white rounded-md hover:bg-indigo-800">
                 Explore
-              </button>
-              <button className="px-6 py-3 border border-indigo-900 text-indigo-900 rounded-md hover:bg-indigo-800 hover:text-white">
+              </a>
+              <a href="heritage.html" className="px-6 py-3 border border-indigo-900 text-indigo-900 rounded-md hover:bg-indigo-800 hover:text-white">
                 Learn more
-              </button>
+              </a>
             </div>
           </div>
           
@@ -190,7 +190,7 @@ const LandingPage = () => {
       </div>
 
   {/* Why Essential Section */}
-      <div className="bg-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-indigo-50 py-16 px-4 sm:px-6 lg:px-8" id="explore">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-indigo-900 mb-4">
