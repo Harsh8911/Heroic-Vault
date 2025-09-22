@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Studio by Heroic Vault</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .available-model-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .available-model-item:hover {
+            background-color: rgba(99, 102, 241, 0.1);
+            transform: translateX(10px);
+        }
+
+        .available-model-item:hover .model-info {
+            opacity: 1;
+            max-height: 100px;
+        }
+
+        .model-info {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-white">
+    <header class="bg-indigo-900 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+           <h1 class="text-2xl font-bold">3D Model Studio by Heroic Vault</h1>
+            <div class="flex items-center">
+                <input type="text" id="search-input" placeholder="Search 3D Models"
+                    class="px-4 py-2 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button onclick="searchModels()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg">
+                    Search
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-10">
+        <div class="text-center mb-10">
+          <h1 class="text-4xl md:text-5xl font-bold text-indigo-900 mb-4">3D Model Studio by Heroic Vault</h1>
+          <p class="text-gray-600 text-lg max-w-3xl mx-auto">Explore our collection of high-quality 3D models for your projects.</p>
+        </div>
+        
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- New section for Available Models at the top center -->
+        <section class="mb-12">
+            <div class="bg-gray-100 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-4 text-center">Available Models</h2>
+                <div id="available-models-list" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Each model now links to a detail page -->
+                   
+                    <a href="\mahatma-gandhi\index.html?model=mahatma-gandhi"
+                        class="available-model-item p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                            <span class="font-semibold text-indigo-900">Mahatma Gandhi</span>
+                        </div>
+                        <p class="text-sm text-gray-600">A detailed 3D model commemorating the Father of the Nation.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-green-600">In Stock</span>
+                        </div>
+                    </a>
+                    <!-- Jyotiba Phule Model -->
+                    <a href="\jyotiba phule\index.html?model=jyotiba-phule"
+                        class="available-model-item p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                            <span class="font-semibold text-indigo-900">Jyotiba Phule</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Tribute to the social reformer who fought for education and
+                            equality.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-green-600">In Stock</span>
+                        </div>
+                    </a>
+
+                    <!-- Savitribai Phule Model -->
+                    <a href="\Savitribai Phule\index.html?model=savitribai-phule"
+                        class="available-model-item p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                            <span class="font-semibold text-indigo-900">Savitribai Phule</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Honoring the pioneer of women's education in India.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-green-600">In Stock</span>
+                        </div>
+                    </a>
+
+                    <!-- Lord Ram Model -->
+                    <a href="\shri ram\index.html?model=lord-ram"
+                        class="available-model-item p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                            <span class="font-semibold text-indigo-900">Lord Ram</span>
+                        </div>
+                        <p class="text-sm text-gray-600">A divine 3D model capturing the essence of Lord Ram.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-green-600">In Stock</span>
+                        </div>
+                    </a>
+
+                    <!-- Natraj Model -->
+                    <a href="\natraj\index.html?model=natraj"
+                        class="available-model-item p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                            <span class="font-semibold text-indigo-900">Natraj</span>
+                        </div>
+                        <p class="text-sm text-gray-600">An artistic 3D representation of Lord Shiva's cosmic dance
+                            form.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-green-600">In Stock</span>
+                        </div>
+                    </a>
+                    <a href="#"
+                        class="available-model-item p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
+                            <span class="font-semibold text-indigo-900">Coming Soon</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Other models are coming soon, earlier than the New Year.</p>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-green-600"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <main>
+          
+            <div id="models-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <!-- Existing model grid remains the same -->
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Ganpati</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Lord Shiva</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Lord Vishnu</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Lord Ram</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Sarswati</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Rishi Valmiki</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Hanuman</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Ambe Maa</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Natraj</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Vitthal & Rukhmini</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Shankh</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Shivaji Maharaj</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Sambhaji Maharaj</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Shivaji Maharaj Rajmudra</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Gandhi Charkha</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Jawaharlal Nehru</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Mahatma Gandhi</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Dhayanchand</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Ravindranath Tagore</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Sardar Vallabhbhai Patel</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Bhagat Singh</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Bal Gangadhar Tilak</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Jyotiba Phule</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Savitribai Phule</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Ramanujan</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Swami Vivekanand</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Subhash Chandra Bose</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Vinayak Savarkar</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Rakesh Sharma</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Sachin Tendulkar</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Chanakya</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Tatya tope</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">APJ Abdul kalam</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Rajendra Prasad</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Bankim Chandra Chattopadhyay</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Lata Mangeshkar</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Mother Teresa</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Homi bhabha</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Vikram sarabhai</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Kapil dev</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Chandra Shekhar ajad</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Visvesvaraya</span>
+                </a>
+                <a href="#" class="bg-gray-100 hover-scale rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-lg font-medium text-indigo-900">Sarojini Naidu</span>
+                </a>
+
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function searchModels() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const modelCards = document.querySelectorAll('#models-grid a');
+
+            modelCards.forEach(card => {
+                const modelName = card.querySelector('span').textContent.toLowerCase();
+                if (modelName.includes(searchInput)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add event listener for real-time search
+        document.getElementById('search-input').addEventListener('input', searchModels);
+    </script>
+</body>
+
+</html>

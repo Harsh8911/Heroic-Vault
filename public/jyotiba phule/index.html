@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D1B69',
+                            hover: '#3d2b79'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <header class="text-gray-600 body-font border-b">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-primary mb-4 md:mb-0">
+                <span class="ml-3 text-2xl font-bold">Jyotiba Phule</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <div class="lg:w-2/3">
+                <div class="bg-white rounded-lg shadow-lg p-4 h-[500px] border border-gray-100">
+                    <div id="model-container" style="width: 100%; height: 100%; position: relative;"></div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                    <h1 class="text-3xl font-bold mb-4 text-primary">Jyotiba Phule</h1>
+                    <div class="space-y-4">
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary">Birth</h2>
+                            <p class="text-gray-600">April 11, 1827</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary">Death</h2>
+                            <p class="text-gray-600">November 28, 1890</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary">Known For</h2>
+                            <p class="text-gray-600">Social activism, Women's education, Anti-caste movement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                <h2 class="text-2xl font-bold mb-4 text-primary">About Jyotiba Phule</h2>
+                <div class="prose max-w-none">
+                    <p class="text-gray-600">
+                        Jyotirao Govindrao Phule was an Indian social activist, thinker, anti-caste social reformer and writer from Maharashtra. He and his wife, Savitribai Phule, were pioneers of women's education in India. He led movements against the caste system and fought for the rights of peasants and other low-caste people.
+                    </p>
+                </div>
+            </div>
+    </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-primary">Contributions</h3>
+                <p class="text-gray-600">Women's Education, Anti-caste Movement, Peasants' Rights</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-primary">Achievements</h3>
+                <p class="text-gray-600">Founded Satyashodhak Samaj, Opened First Girls' School</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-primary">Legacy</h3>
+                <p class="text-gray-600">Pioneer of Social Reform, Education Advocate</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const container = document.getElementById('model-container');
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+
+        container.style.width = '100%';
+        container.style.height = '400px';
+
+        if (!container.querySelector('canvas')) {
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff);
+
+            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(0, 3, 10);
+
+            const renderer = new THREE.WebGLRenderer({ 
+                antialias: true,
+                alpha: true 
+            });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.shadowMap.enabled = true;
+            container.appendChild(renderer.domElement);
+
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 1.0;
+            controls.minDistance = 5;
+            controls.maxDistance = 15;
+            controls.target.set(0, 1, 0);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(5, 5, 5);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+
+            const objLoader = new THREE.OBJLoader();
+            const textureLoader = new THREE.TextureLoader();
+
+            // Load textures
+            const diffuseMap = textureLoader.load('Pbr/texture_diffuse.png');
+            const normalMap = textureLoader.load('Pbr/texture_normal.png');
+            const metallicMap = textureLoader.load('Pbr/texture_metallic.png');
+            const roughnessMap = textureLoader.load('Pbr/texture_roughness.png');
+
+            objLoader.load(
+                'Pbr/base.obj',
+                function(object) {
+                    object.traverse(function(child) {
+                        if (child instanceof THREE.Mesh) {
+                            child.material = new THREE.MeshStandardMaterial({
+                                map: diffuseMap,
+                                normalMap: normalMap,
+                                metalnessMap: metallicMap,
+                                roughnessMap: roughnessMap,
+                                metalness: 0.2,
+                                roughness: 0.8,
+                                side: THREE.DoubleSide
+                            });
+                            
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
+                    });
+
+                    const box = new THREE.Box3().setFromObject(object);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3());
+                    
+                    object.position.x = -center.x;
+                    object.position.y = -center.y;
+                    object.position.z = -center.z;
+                    
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    const scale = 5 / maxDim;
+                    object.scale.multiplyScalar(scale);
+                    
+                    scene.add(object);
+                }
+            );
+
+            function onWindowResize() {
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height, false);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            onWindowResize();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        function dispose() {
+            if (renderer) {
+                renderer.dispose();
+                scene.traverse((object) => {
+                    if (object.geometry) {
+                        object.geometry.dispose();
+                    }
+                    if (object.material) {
+                        if (object.material.map) {
+                            object.material.map.dispose();
+                        }
+                        object.material.dispose();
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('unload', dispose);
+    </script>
+</body>
+</html>

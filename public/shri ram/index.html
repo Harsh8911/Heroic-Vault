@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <!-- Keep the same tailwind config and styles as before -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2D1B69',  // Changed back to original blue
+                            hover: '#3d2b79'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Keep the same styles section as before -->
+    <style>
+        #model-container {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+            outline: none;
+        }
+
+        .progress-bar {
+            display: block;
+            width: 33%;
+            height: 10%;
+            max-height: 2px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            border-radius: 25px;
+            box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .progress-bar.hide {
+            visibility: hidden;
+            transition: visibility 0.3s;
+        }
+
+        .update-bar {
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 0%;
+            height: 100%;
+            border-radius: 25px;
+            float: left;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-primary mb-4 md:mb-0">
+                <span class="ml-3 text-2xl font-bold">Virtual Lord Ram</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Keep the same 3D viewer container -->
+            <div class="lg:w-2/3">
+                <div class="bg-white rounded-2xl shadow-lg p-4 h-[500px] border border-gray-100">
+                    <div id="model-container">
+                        <canvas id="model-canvas"></canvas>
+                        <div class="progress-bar">
+                            <div class="update-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Updated Monument Details Section -->
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <h1 class="text-3xl font-bold mb-4 text-primary">Lord Ram</h1>
+                    <div class="space-y-4">
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary">Significance</h2>
+                            <p class="text-gray-600">7th Avatar of Lord Vishnu</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary">Known As</h2>
+                            <p class="text-gray-600">Maryada Purushottam, Ramchandra, Raghupati</p>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary">Iconography</h2>
+                            <p class="text-gray-600">Depicted with bow and arrow, accompanied by Sita, Lakshman, and Hanuman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Updated Description Section -->
+        <div class="mt-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <h2 class="text-2xl font-bold mb-4 text-primary">About Lord Ram</h2>
+                <div class="prose max-w-none">
+                    <p class="text-gray-600">
+                        Lord Ram, the seventh avatar of Vishnu, embodies dharma and righteousness. He is the perfect example of an ideal son, husband, brother, and king.
+                    </p>
+                    <p class="text-gray-600 mt-4">
+                        His life story, chronicled in the epic Ramayana, teaches the values of truth, duty, and righteousness. He is often depicted holding a bow and arrow, symbolizing his role as a protector of dharma.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Updated Additional Features Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-primary">Symbols</h3>
+                <p class="text-gray-600">
+                    - Bow and Arrow - Protection<br>
+                    - Crown - Kingship<br>
+                    - Lotus - Divinity<br>
+                    - Yellow Garments - Knowledge
+                </p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-primary">Worship Details</h3>
+                <p class="text-gray-600">
+                    - Ram Navami<br>
+                    - Diwali<br>
+                    - Daily Prayers<br>
+                    - Special Tuesdays
+                </p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-2 text-primary">Cultural Impact</h3>
+                <p class="text-gray-600">
+                    Symbol of ideal conduct and righteousness. The Ramayana has influenced art, literature, and culture across Asia for thousands of years.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Three.js setup
+        const container = document.getElementById('model-container');
+        const canvas = document.getElementById('model-canvas');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+        
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ 
+            canvas: canvas,
+            antialias: true,
+            alpha: true 
+        });
+        
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // Add progress bar functionality
+        const progressBar = document.querySelector('.progress-bar');
+        const updateBar = document.querySelector('.update-bar');
+
+        function onProgress(xhr) {
+            if (xhr.lengthComputable) {
+                const percentComplete = xhr.loaded / xhr.total * 100;
+                updateBar.style.width = percentComplete + '%';
+                
+                if (percentComplete === 100) {
+                    progressBar.classList.add('hide');
+                }
+            }
+        }
+
+        // Setup lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+        directionalLight.position.set(-5, 5, -5);
+        directionalLight.castShadow = true;
+        scene.add(directionalLight);
+
+        const frontLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        frontLight.position.set(0, 2, -5);
+        frontLight.castShadow = true;
+        scene.add(frontLight);
+
+        const leftLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        leftLight.position.set(-3, 2, -2);
+        scene.add(leftLight);
+
+        const rightLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        rightLight.position.set(3, 2, -2);
+        scene.add(rightLight);
+
+        const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        fillLight.position.set(0, -2, -3);
+        scene.add(fillLight);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.8);
+        hemiLight.position.set(0, 20, -10);
+        scene.add(hemiLight);
+
+        // Controls setup
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = true;
+        controls.minDistance = 3;
+        controls.maxDistance = 10;
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = false;
+        controls.rotateSpeed = 0.7;
+        controls.enablePan = false;
+
+        // Load the STL file
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js';
+        document.head.appendChild(script);
+
+        script.onload = function() {
+            const loader = new THREE.STLLoader();
+            
+            loader.load(
+                'Ram Lalla.stl',
+                function(geometry) {
+                    const material = new THREE.MeshStandardMaterial({
+                        color: 0xd4af37,
+                        metalness: 0.7,
+                        roughness: 0.3,
+                        side: THREE.DoubleSide
+                    });
+                    
+                    const mesh = new THREE.Mesh(geometry, material);
+                    geometry.computeBoundingBox();
+                    geometry.center();
+                    
+                    const scale = 0.20;
+                    mesh.scale.set(scale, scale, scale);
+                    
+                    mesh.rotation.x = 0;
+                    mesh.rotation.y = 0;
+                    mesh.rotation.z = 0;
+                    
+                    scene.add(mesh);
+                    
+                    camera.position.set(0, 1, 4);
+                    controls.target.set(0, 0.3, 0);
+                    controls.update();
+                    
+                    // एकदा रेंडर कर
+                    renderer.render(scene, camera);
+                },
+                function(xhr) {
+                    // प्रोग्रेस बार अपडेट कर
+                    if (xhr.lengthComputable) {
+                        const percentComplete = xhr.loaded / xhr.total * 100;
+                        updateBar.style.width = percentComplete + '%';
+                        if (percentComplete === 100) {
+                            progressBar.classList.add('hide');
+                        }
+                    }
+                },
+                function(error) {
+                    console.error(' एरर आलाय:', error);
+                }
+            );
+        };
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize() {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+        }
+    </script>
+</body>
+</html>
