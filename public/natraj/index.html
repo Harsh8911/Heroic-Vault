@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lord Ram | Heroic Vault</title>
+  <title>Lord Natraj | Heroic Vault</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../model-viewer.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -41,7 +42,7 @@
           </div>
 
           <div class="controls">
-            <button id="btn-rotate" class="btn">Auto Spin</button>
+            <button id="btn-rotate" class="btn active">Pause Spin</button>
             <button id="btn-reset" class="btn">Reset View</button>
             <button id="btn-wireframe" class="btn">Wireframe</button>
             <button id="btn-fullscreen" class="btn">Fullscreen</button>
@@ -60,20 +61,20 @@
         </div>
 
         <aside class="info-side">
-          <h2 class="side-title">Lord Ram</h2>
-          <p class="side-sub">Maryada Purushottam, revered as an ideal of dharma and righteous leadership.</p>
+          <h2 class="side-title">Lord Natraj</h2>
+          <p class="side-sub">The cosmic dancer of creation, preservation, and transformation.</p>
           <div class="meta-list">
             <div class="meta-item">
               <strong>Significance</strong>
-              Seventh avatar of Vishnu and emblem of ethical conduct.
+              Symbol of rhythm in the universe and eternal cosmic motion.
             </div>
             <div class="meta-item">
               <strong>Known As</strong>
-              Ramchandra, Raghunandan, protector of truth and duty.
+              Nataraj, The Cosmic Dancer, a timeless form of Shiva.
             </div>
             <div class="meta-item">
               <strong>Iconography</strong>
-              Bow and arrow, crown, and steadfast composure in adversity.
+              Dancing pose within a ring of fire, with symbols of knowledge and liberation.
             </div>
           </div>
         </aside>
@@ -83,15 +84,15 @@
     <section class="content-grid">
       <article class="panel">
         <h3>About</h3>
-        <p>The Ramayana presents Lord Ram as the model of duty, compassion, and principled governance across every challenge.</p>
+        <p>Natraj captures the cyclical nature of existence. The iconic dance reflects both destruction of illusion and renewal of life in one continuous movement.</p>
       </article>
       <article class="panel">
-        <h3>Festivals</h3>
-        <p>Ram Navami and Diwali remain major celebrations associated with his life, teachings, and legacy.</p>
+        <h3>Symbols</h3>
+        <p>Damaru for creation, the ring of fire for cosmic cycles, the raised foot for liberation, and Apasmara for ignorance overcome.</p>
       </article>
       <article class="panel">
-        <h3>Cultural Reach</h3>
-        <p>His story continues to shape literature, theatre, visual art, and spiritual practice across Asia and beyond.</p>
+        <h3>Cultural Presence</h3>
+        <p>Recognized globally as a classical symbol of India, Natraj bridges philosophy, dance, and spiritual science.</p>
       </article>
     </section>
   </main>
@@ -99,37 +100,54 @@
   <script src="../model-viewer.js"></script>
   <script>
     HeroicViewer.init({
-      autoRotate: false,
-      snapshotName: "lord-ram",
+      autoRotate: true,
+      snapshotName: "natraj",
       loadModel: function (ctx) {
         return new Promise(function (resolve, reject) {
-          var loader = new THREE.STLLoader();
+          var mtlLoader = new THREE.MTLLoader();
+          var objLoader = new THREE.OBJLoader();
+          var textureLoader = new THREE.TextureLoader();
 
-          loader.load("Ram Lalla.stl", function (geometry) {
-            var material = new THREE.MeshStandardMaterial({
-              color: 0xd4af37,
-              metalness: 0.7,
-              roughness: 0.32,
-              side: THREE.DoubleSide
-            });
+          mtlLoader.load("natraj.mtl", function (materials) {
+            materials.preload();
+            objLoader.setMaterials(materials);
 
-            var mesh = new THREE.Mesh(geometry, material);
-            geometry.computeBoundingBox();
-            geometry.center();
+            objLoader.load("ImageToStl.com_natraj.obj", function (object) {
+              textureLoader.load("main_baseColor.jpg", function (texture) {
+                var material = new THREE.MeshStandardMaterial({
+                  map: texture,
+                  metalness: 0.25,
+                  roughness: 0.78,
+                  side: THREE.DoubleSide
+                });
 
-            var scale = 0.2;
-            mesh.scale.set(scale, scale, scale);
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
+                object.traverse(function (child) {
+                  if (child && child.isMesh) {
+                    child.material = material;
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                  }
+                });
 
-            ctx.scene.add(mesh);
-            ctx.onProgress(100, "Model ready");
-            resolve(mesh);
-          }, function (xhr) {
-            if (xhr.total) {
-              ctx.onProgress((xhr.loaded / xhr.total) * 100, "Loading mesh...");
-            }
-          }, reject);
+                var box = new THREE.Box3().setFromObject(object);
+                var center = box.getCenter(new THREE.Vector3());
+                var size = box.getSize(new THREE.Vector3());
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var scale = 6 / maxDim;
+
+                object.position.sub(center);
+                object.scale.setScalar(scale);
+
+                ctx.scene.add(object);
+                ctx.onProgress(100, "Model ready");
+                resolve(object);
+              }, undefined, reject);
+            }, function (xhr) {
+              if (xhr.total) {
+                ctx.onProgress((xhr.loaded / xhr.total) * 100, "Loading geometry...");
+              }
+            }, reject);
+          }, undefined, reject);
         });
       }
     });

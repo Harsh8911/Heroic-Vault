@@ -1,2 +1,4 @@
 *.stl filter=lfs diff=lfs merge=lfs -text
+public/museum/Build/*.data filter=lfs diff=lfs merge=lfs -text
+public/museum/Build/*.wasm filter=lfs diff=lfs merge=lfs -text
 public/shri[[:space:]]ram/Ram[[:space:]]Lalla.stl filter=lfs diff=lfs merge=lfs -text

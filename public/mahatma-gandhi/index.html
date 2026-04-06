@@ -1,259 +1,154 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#2D1B69',
-                            hover: '#3d2b79'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahatma Gandhi | Heroic Vault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../model-viewer.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
 </head>
-<body class="bg-white">
-    <header class="text-gray-600 body-font border-b">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a class="flex title-font font-medium items-center text-primary mb-4 md:mb-0">
-                <span class="ml-3 text-2xl font-bold">Mahatma Gandhi</span>
-            </a>
-        </div>
-    </header>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">Heroic Vault</h1>
+      <a class="back-link" href="/">Back to Collection</a>
+    </div>
+  </header>
 
-    <main class="container mx-auto px-4 py-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <div class="lg:w-2/3">
-                <div class="bg-white rounded-lg shadow-lg p-4 h-[500px] border border-gray-100">
-                    <div id="model-container" style="width: 100%; height: 100%; position: relative;"></div>
+  <main class="page-shell">
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div class="viewer-side">
+          <div id="viewer-frame" class="viewer-frame">
+            <canvas id="viewer-canvas"></canvas>
+            <div id="loader" class="loader">
+              <div class="loader-box">
+                <p id="loader-label" class="loader-label">Loading 3D model...</p>
+                <div class="progress-track">
+                  <div id="progress-fill" class="progress-fill"></div>
                 </div>
+              </div>
             </div>
+            <div class="viewer-overlay">
+              <span id="status-pill" class="pill">Preparing scene...</span>
+              <span class="pill">Drag to orbit, scroll to zoom</span>
+            </div>
+          </div>
 
-            <div class="lg:w-1/3">
-                <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                    <h1 class="text-3xl font-bold mb-4 text-primary">Mahatma Gandhi</h1>
-                    <div class="space-y-4">
-                        <div>
-                            <h2 class="text-xl font-semibold text-primary">Birth</h2>
-                            <p class="text-gray-600">October 2, 1869</p>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold text-primary">Death</h2>
-                            <p class="text-gray-600">January 30, 1948</p>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold text-primary">Known For</h2>
-                            <p class="text-gray-600">Non-violent civil disobedience, Indian Independence Movement</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="controls">
+            <button id="btn-rotate" class="btn active">Pause Spin</button>
+            <button id="btn-reset" class="btn">Reset View</button>
+            <button id="btn-wireframe" class="btn">Wireframe</button>
+            <button id="btn-fullscreen" class="btn">Fullscreen</button>
+            <button id="btn-snapshot" class="btn">Snapshot</button>
+          </div>
+
+          <div class="slider-group">
+            <label class="slider-label" for="light-range">Key Light <span id="light-value">1.2x</span></label>
+            <input id="light-range" type="range" min="0.3" max="2.5" step="0.1" value="1.2">
+          </div>
+          <div class="slider-group">
+            <label class="slider-label" for="exposure-range">Exposure <span id="exposure-value">1.1x</span></label>
+            <input id="exposure-range" type="range" min="0.6" max="2.0" step="0.1" value="1.1">
+          </div>
+          <div id="error-box" class="error-box"></div>
         </div>
 
-        <div class="mt-8">
-            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                <h2 class="text-2xl font-bold mb-4 text-primary">About Mahatma Gandhi</h2>
-                <div class="prose max-w-none">
-                    <p class="text-gray-600">
-                        Mohandas Karamchand Gandhi, popularly known as Mahatma Gandhi, was an Indian independence movement leader who led India to independence through non-violent civil disobedience. He inspired movements for civil rights and freedom across the world. Gandhi helped free India from British rule through peaceful resistance and is honored as the Father of the Nation.
-                    </p>
-                </div>
+        <aside class="info-side">
+          <h2 class="side-title">Mahatma Gandhi</h2>
+          <p class="side-sub">Leader of satyagraha, non-violent resistance, and ethical politics.</p>
+          <div class="meta-list">
+            <div class="meta-item">
+              <strong>Birth</strong>
+              October 2, 1869
             </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                <h3 class="text-xl font-semibold mb-2 text-primary">Philosophy</h3>
-                <p class="text-gray-600">Non-violence (Ahimsa), Truth (Satyagraha), Civil Disobedience</p>
+            <div class="meta-item">
+              <strong>Known For</strong>
+              Non-violent civil disobedience and freedom movement leadership.
             </div>
-            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                <h3 class="text-xl font-semibold mb-2 text-primary">Movements</h3>
-                <p class="text-gray-600">Salt March, Quit India Movement, Non-cooperation Movement</p>
+            <div class="meta-item">
+              <strong>Legacy</strong>
+              Inspired democratic and civil rights struggles worldwide.
             </div>
-            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-                <h3 class="text-xl font-semibold mb-2 text-primary">Legacy</h3>
-                <p class="text-gray-600">Father of the Nation, Global influence on civil rights</p>
-            </div>
-        </div>
-    </main>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-    <script>
-        const container = document.getElementById('model-container');
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
+    <section class="content-grid">
+      <article class="panel">
+        <h3>About</h3>
+        <p>Mahatma Gandhi mobilized millions through peaceful protest and moral courage. His teachings made non-violence a practical instrument for social transformation.</p>
+      </article>
+      <article class="panel">
+        <h3>Core Ideals</h3>
+        <p>Ahimsa, satya, self-discipline, and public service shaped his strategy and his model of leadership.</p>
+      </article>
+      <article class="panel">
+        <h3>Historical Impact</h3>
+        <p>His methods influenced global movements for justice and civil rights, from South Africa to the United States.</p>
+      </article>
+    </section>
+  </main>
 
-        container.style.width = '100%';
-        container.style.height = '400px';
+  <script src="../model-viewer.js"></script>
+  <script>
+    HeroicViewer.init({
+      autoRotate: true,
+      snapshotName: "mahatma-gandhi",
+      loadModel: function (ctx) {
+        return new Promise(function (resolve, reject) {
+          var mtlLoader = new THREE.MTLLoader();
+          var objLoader = new THREE.OBJLoader();
+          var textureLoader = new THREE.TextureLoader();
 
-        if (!container.querySelector('canvas')) {
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xffffff);
+          textureLoader.load("./source/f948a109c8c843e4a850f30454a4dfb3/model_texture.jpg", function (texture) {
+            mtlLoader.load("./source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj.mtl", function (materials) {
+              materials.preload();
+              objLoader.setMaterials(materials);
 
-            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.set(0, 3, 10);
-
-            const renderer = new THREE.WebGLRenderer({ 
-                antialias: true,
-                alpha: true 
-            });
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.shadowMap.enabled = true;
-            container.appendChild(renderer.domElement);
-
-            if (!renderer.domElement) {
-                console.error('Failed to create renderer element');
-            }
-
-            if (!renderer.capabilities.isWebGL2) {
-                console.warn('WebGL 2 not supported, falling back to WebGL 1');
-            }
-
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.autoRotate = true;
-            controls.autoRotateSpeed = 1.0;
-            controls.minDistance = 5;
-            controls.maxDistance = 15;
-            controls.target.set(0, 1, 0);
-
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-            scene.add(ambientLight);
-
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(5, 5, 5);
-            directionalLight.castShadow = true;
-            scene.add(directionalLight);
-
-            const mtlLoader = new THREE.MTLLoader();
-            const objLoader = new THREE.OBJLoader();
-
-            const textureLoader = new THREE.TextureLoader();
-            textureLoader.load(
-                './source/f948a109c8c843e4a850f30454a4dfb3/model_texture.jpg',
-                function(texture) {
-                    console.log('Texture loaded successfully');
-                    const diffuseMap = texture;
-                    
-                    mtlLoader.load(
-                        './source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj.mtl',
-                        function(materials) {
-                            console.log('MTL loaded successfully');
-                            materials.preload();
-                            
-                            objLoader.setMaterials(materials);
-                            
-                            objLoader.load(
-                                './source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj',
-                                function(object) {
-                                    console.log('OBJ loaded successfully');
-                                    object.traverse(function(child) {
-                                        if (child instanceof THREE.Mesh) {
-                                            child.material = new THREE.MeshStandardMaterial({
-                                                map: diffuseMap,
-                                                metalness: 0.2,
-                                                roughness: 0.8,
-                                                side: THREE.DoubleSide
-                                            });
-                                            
-                                            child.castShadow = true;
-                                            child.receiveShadow = true;
-                                        }
-                                    });
-
-                                    console.log('Original object position:', object.position);
-                                    console.log('Original object scale:', object.scale);
-
-                                    const box = new THREE.Box3().setFromObject(object);
-                                    const center = box.getCenter(new THREE.Vector3());
-                                    const size = box.getSize(new THREE.Vector3());
-                                    
-                                    object.position.x = -center.x;
-                                    object.position.y = -center.y;
-                                    object.position.z = -center.z;
-                                    
-                                    const maxDim = Math.max(size.x, size.y, size.z);
-                                    const scale = 5 / maxDim;
-                                    object.scale.multiplyScalar(scale);
-                                    
-                                    console.log('Final object position:', object.position);
-                                    console.log('Final object scale:', object.scale);
-                                    
-                                    scene.add(object);
-                                },
-                                function(xhr) {
-                                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                                },
-                                function(error) {
-                                    console.error('Error loading OBJ:', error);
-                                    console.error('Error details:', error.message);
-                                }
-                            );
-                        },
-                        undefined,
-                        function(error) {
-                            console.error('Error loading MTL:', error);
-                        }
-                    );
-                },
-                undefined,
-                function(error) {
-                    console.error('Error loading texture:', error);
-                }
-            );
-
-            function onWindowResize() {
-                const width = container.clientWidth;
-                const height = container.clientHeight;
-                
-                camera.aspect = width / height;
-                camera.updateProjectionMatrix();
-                
-                renderer.setSize(width, height, false);
-            }
-
-            window.addEventListener('resize', onWindowResize);
-            onWindowResize();
-
-            function animate() {
-                requestAnimationFrame(animate);
-                controls.update();
-                renderer.render(scene, camera);
-            }
-            animate();
-        }
-
-        function dispose() {
-            if (renderer) {
-                renderer.dispose();
-                scene.traverse((object) => {
-                    if (object.geometry) {
-                        object.geometry.dispose();
-                    }
-                    if (object.material) {
-                        if (object.material.map) {
-                            object.material.map.dispose();
-                        }
-                        object.material.dispose();
-                    }
+              objLoader.load("./source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj", function (object) {
+                object.traverse(function (child) {
+                  if (child && child.isMesh) {
+                    child.material = new THREE.MeshStandardMaterial({
+                      map: texture,
+                      metalness: 0.22,
+                      roughness: 0.82,
+                      side: THREE.DoubleSide
+                    });
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                  }
                 });
-            }
-        }
 
-        window.addEventListener('unload', dispose);
-    </script>
+                var box = new THREE.Box3().setFromObject(object);
+                var center = box.getCenter(new THREE.Vector3());
+                var size = box.getSize(new THREE.Vector3());
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var scale = 5 / maxDim;
+
+                object.position.sub(center);
+                object.scale.setScalar(scale);
+
+                ctx.scene.add(object);
+                ctx.onProgress(100, "Model ready");
+                resolve(object);
+              }, function (xhr) {
+                if (xhr.total) {
+                  ctx.onProgress((xhr.loaded / xhr.total) * 100, "Loading geometry...");
+                }
+              }, reject);
+            }, undefined, reject);
+          }, undefined, reject);
+        });
+      }
+    });
+  </script>
 </body>
-</html> 
+</html>
