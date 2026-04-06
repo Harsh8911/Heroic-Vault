@@ -6,55 +6,90 @@
     <title>Explore India's Cultural Tapestry | Heroic Vault</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .feature-icon {
+            transition: transform 0.3s ease;
+        }
+        .feature-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
 </head>
 <body class="bg-white text-gray-900">
-    <!-- Navigation -->
-    
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                Heroic Vault
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="/#about" class="text-gray-700 hover:text-orange-600 transition">About</a>
+                <a href="heritage.html" class="text-gray-700 hover:text-orange-600 transition">Heritage</a>
+                <a href="culture.html" class="text-orange-600 font-semibold">Culture</a>
+                <a href="studios.html" class="text-gray-700 hover:text-orange-600 transition">Studios</a>
+                <a href="contactpage.html" class="px-6 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full hover:shadow-lg transition">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-r from-indigo-900 to-indigo-700 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-6">Discover India's Cultural Mosaic</h1>
-            <p class="text-xl max-w-3xl mx-auto mb-10">
+    <header class="pt-32 pb-20 px-6 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Discover India's
+                <span class="block bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                    Cultural Mosaic
+                </span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 A journey through the vibrant traditions, languages, arts, and living heritage that define the soul of India
             </p>
         </div>
     </header>
 
-    <!-- Cultural Diversity Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-indigo-900 mb-4">Unity in Diversity</h2>
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Unity in Diversity</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto">
                     India is a kaleidoscope of cultures, where diverse traditions, languages, and customs coexist harmoniously
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Language Diversity -->
-                <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
-                    <i class="fas fa-language text-indigo-900 text-4xl mb-4 block"></i>
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Linguistic Richness</h3>
-                    <p class="text-gray-600">
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl shadow-lg text-center">
+                    <div class="feature-icon w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-language text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Linguistic Richness</h3>
+                    <p class="text-gray-600 leading-relaxed">
                         22 official languages and over 1,600 mother tongues, showcasing India's incredible linguistic diversity
                     </p>
                 </div>
 
-                <!-- Religious Diversity -->
-                <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
-                    <i class="fas fa-place-of-worship text-indigo-900 text-4xl mb-4 block"></i>
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Religious Harmony</h3>
-                    <p class="text-gray-600">
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl shadow-lg text-center">
+                    <div class="feature-icon w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-place-of-worship text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Religious Harmony</h3>
+                    <p class="text-gray-600 leading-relaxed">
                         Birthplace of multiple religions including Hinduism, Buddhism, Sikhism, and Jainism
                     </p>
                 </div>
 
-                <!-- Culinary Diversity -->
-                <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
-                    <i class="fas fa-utensils text-indigo-900 text-4xl mb-4 block"></i>
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Culinary Traditions</h3>
-                    <p class="text-gray-600">
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl shadow-lg text-center">
+                    <div class="feature-icon w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-utensils text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Culinary Traditions</h3>
+                    <p class="text-gray-600 leading-relaxed">
                         A rich tapestry of flavors spanning regions, with unique cuisines that tell stories of local cultures
                     </p>
                 </div>
@@ -62,84 +97,188 @@
         </div>
     </section>
 
-    <!-- Cultural Domains Section -->
-    <section class="bg-indigo-50 py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-indigo-900 mb-4">Domains of Cultural Expression</h2>
+    <section class="py-20 px-6 bg-gradient-to-br from-slate-50 to-orange-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Domains of Cultural Expression</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Explore the diverse art forms that showcase India's creative spirit
+                </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Art Forms -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="/images/art-forms.png" alt="Art Forms" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Traditional Art Forms</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Madhubani Painting</li>
-                        <li>• Warli Art</li>
-                        <li>• Phad Painting</li>
-                        <li>• Miniature Painting</li>
-                    </ul>
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                        <i class="fas fa-palette text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Traditional Art Forms</h3>
+                        <ul class="text-gray-600 space-y-2 leading-relaxed">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Madhubani Painting
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Warli Art
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Phad Painting
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Miniature Painting
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Dance Forms -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="/images/dance-forms.png" alt="Dance Forms" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Classical Dance</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Bharatanatyam</li>
-                        <li>• Kathak</li>
-                        <li>• Odissi</li>
-                        <li>• Manipuri</li>
-                    </ul>
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                        <i class="fas fa-masks-theater text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Classical Dance</h3>
+                        <ul class="text-gray-600 space-y-2 leading-relaxed">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Bharatanatyam
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Kathak
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Odissi
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Manipuri
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Music Traditions -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="/images/music-forms.png" alt="Music Forms" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Music Traditions</h3>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Hindustani Classical</li>
-                        <li>• Carnatic Music</li>
-                        <li>• Folk Music</li>
-                        <li>• Devotional Music</li>
-                    </ul>
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                        <i class="fas fa-music text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Music Traditions</h3>
+                        <ul class="text-gray-600 space-y-2 leading-relaxed">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Hindustani Classical
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Carnatic Music
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Folk Music
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                Devotional Music
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Regional Festivals Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-indigo-900 mb-4">Festivals Across India</h2>
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Festivals Across India</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto">
                     Celebrations that reflect the spirit of unity, joy, and cultural significance
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
-                    <img src="/images/diwali.png" alt="Diwali" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Diwali</h3>
-                    <p class="text-gray-600">Festival of Lights, symbolizing the victory of good over evil</p>
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                        <i class="fas fa-candle-holder text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Diwali</h3>
+                        <p class="text-gray-600 leading-relaxed">Festival of Lights, symbolizing the victory of good over evil and the arrival of prosperity</p>
+                    </div>
                 </div>
 
-                <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
-                    <img src="/images/holi.png" alt="Holi" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Holi</h3>
-                    <p class="text-gray-600">Colorful celebration of spring and the triumph of good</p>
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                        <i class="fas fa-hand-sparkles text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Holi</h3>
+                        <p class="text-gray-600 leading-relaxed">Colorful celebration of spring, love, and the triumph of good over evil</p>
+                    </div>
                 </div>
 
-                <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
-                    <img src="/images/pongal.png" alt="Pongal" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                    <h3 class="text-2xl font-semibold text-indigo-900 mb-3">Pongal</h3>
-                    <p class="text-gray-600">Harvest festival celebrating agricultural prosperity</p>
+                <div class="card-hover bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-56 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                        <i class="fas fa-seedling text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Pongal</h3>
+                        <p class="text-gray-600 leading-relaxed">Harvest festival celebrating agricultural prosperity and thanking nature</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-   </body>
+    <footer class="bg-gradient-to-br from-gray-900 to-slate-800 text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">Heroic Vault</h3>
+                    <p class="text-gray-400 leading-relaxed">Preserving India's cultural heritage for future generations through digital innovation.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="/#about" class="hover:text-orange-400 transition">About Us</a></li>
+                        <li><a href="heritage.html" class="hover:text-orange-400 transition">Heritage</a></li>
+                        <li><a href="culture.html" class="hover:text-orange-400 transition">Culture</a></li>
+                        <li><a href="/museum/index.html" class="hover:text-orange-400 transition">Virtual Museum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Explore</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="studios.html" class="hover:text-orange-400 transition">3D Studios</a></li>
+                        <li><a href="/#gallery" class="hover:text-orange-400 transition">Gallery</a></li>
+                        <li><a href="contactpage.html" class="hover:text-orange-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact</h4>
+                    <p class="text-gray-400 mb-2">Phone: +91 8010545026</p>
+                    <p class="text-gray-400 mb-4">Location: Nashik, India</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 Heroic Vault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
