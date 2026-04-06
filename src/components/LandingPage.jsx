@@ -265,13 +265,13 @@ const LandingPage = () => {
               <p className="text-gray-400 mb-2">Phone: +91 8010545026</p>
               <p className="text-gray-400 mb-4">Location: Nashik, India</p>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook" title="Facebook" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our X profile" title="X" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram" title="Instagram" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
                   <i className="fab fa-instagram"></i>
                 </a>
               </div>
