@@ -57,7 +57,7 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50">
-      <nav className="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+      <nav className="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
             Heroic Vault
@@ -66,6 +66,7 @@ const LandingPage = () => {
             <a href="#about" className="text-gray-700 hover:text-orange-600 transition">About</a>
             <a href="heritage.html" className="text-gray-700 hover:text-orange-600 transition">Heritage</a>
             <a href="culture.html" className="text-gray-700 hover:text-orange-600 transition">Culture</a>
+            <a href="studios.html" className="text-gray-700 hover:text-orange-600 transition">Studios</a>
             <a href="contactpage.html" className="px-6 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full hover:shadow-lg transition">
               Contact
             </a>
@@ -235,28 +236,50 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <footer className="bg-gradient-to-br from-gray-900 to-slate-800 text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Heroic Vault</h3>
-            <p className="text-gray-400">Preserving India's cultural heritage for future generations.</p>
+      <footer className="bg-gradient-to-br from-gray-900 to-slate-800 text-white py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">Heroic Vault</h3>
+              <p className="text-gray-400 leading-relaxed">Preserving India's cultural heritage for future generations through digital innovation.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#about" className="hover:text-orange-400 transition">About Us</a></li>
+                <li><a href="heritage.html" className="hover:text-orange-400 transition">Heritage</a></li>
+                <li><a href="culture.html" className="hover:text-orange-400 transition">Culture</a></li>
+                <li><a href="/museum/index.html" className="hover:text-orange-400 transition">Virtual Museum</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-lg mb-4">Explore</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="studios.html" className="hover:text-orange-400 transition">3D Studios</a></li>
+                <li><a href="#gallery" className="hover:text-orange-400 transition">Gallery</a></li>
+                <li><a href="contactpage.html" className="hover:text-orange-400 transition">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-lg mb-4">Contact</h4>
+              <p className="text-gray-400 mb-2">Phone: +91 8010545026</p>
+              <p className="text-gray-400 mb-4">Location: Nashik, India</p>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
+                  <i className="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
           </div>
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#about" className="hover:text-white transition">About</a></li>
-              <li><a href="culture.html" className="hover:text-white transition">Culture</a></li>
-              <li><a href="/museum/index.html" className="hover:text-white transition">Museum</a></li>
-            </ul>
+          <div className="pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>&copy; 2024 Heroic Vault. All rights reserved.</p>
           </div>
-          <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <p className="text-gray-400">Phone: +91 8010545026</p>
-            <p className="text-gray-400">Location: Nashik, India</p>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; 2024 Heroic Vault. All rights reserved.</p>
         </div>
       </footer>
     </div>
