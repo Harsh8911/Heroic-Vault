@@ -1,0 +1,6 @@
+{
+  "framework": "create-react-app",
+  "installCommand": "npm ci",
+  "buildCommand": "git lfs install && git lfs pull && npm run verify:unity && npm run build",
+  "outputDirectory": "build"
+}
