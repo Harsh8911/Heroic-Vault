@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shri Ram | Heroic Vault</title>
+  <title>Buddha | Heroic Vault</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
@@ -63,12 +63,12 @@
         </div>
 
         <aside class="info-side">
-          <h2 class="side-title">Shri Ram</h2>
-          <p class="side-sub">Shri Ram from the Heroic Vault 3D collection.</p>
+          <h2 class="side-title">Buddha</h2>
+          <p class="side-sub">A serene form inspired by enlightenment and peace.</p>
           <div class="meta-list">
             <div class="meta-item">
               <strong>Highlight</strong>
-              Digitally preserved model prepared for interactive viewing.
+              Awareness, compassion, and inner stillness.
             </div>
             <div class="meta-item">
               <strong>Scene Type</strong>
@@ -76,7 +76,7 @@
             </div>
             <div class="meta-item">
               <strong>File</strong>
-              Ram.OBJ
+              Buddha_01.obj
             </div>
           </div>
         </aside>
@@ -86,7 +86,7 @@
     <section class="content-grid">
       <article class="panel">
         <h3>About</h3>
-        <p>Digitally preserved model prepared for interactive viewing.</p>
+        <p>Awareness, compassion, and inner stillness.</p>
       </article>
       <article class="panel">
         <h3>Collection</h3>
@@ -103,14 +103,14 @@
   <script>
     HeroicViewer.init({
       autoRotate: true,
-      snapshotName: "shri-ram",
+      snapshotName: "buddha",
       loadModel: function (ctx) {
         return new Promise(function (resolve, reject) {
           var textureLoader = new THREE.TextureLoader();
           var objLoader = new THREE.OBJLoader();
 
-          textureLoader.load("Ram lalla.png", function (texture) {
-            objLoader.load("Ram.OBJ", function (object) {
+          textureLoader.load("Buddha_01.png", function (texture) {
+            objLoader.load("Buddha_01.obj", function (object) {
               var material = new THREE.MeshStandardMaterial({
                 map: texture,
                 metalness: 0.24,

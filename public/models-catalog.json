@@ -1,0 +1,1016 @@
+{
+  "generatedAt": "2026-04-07T09:35:20.782Z",
+  "totalModels": 54,
+  "featuredModels": [
+    {
+      "directory": "mahatma-gandhi",
+      "name": "Mahatma Gandhi",
+      "slug": "mahatma-gandhi",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj",
+      "loader": "obj-textured",
+      "textureFile": "source/f948a109c8c843e4a850f30454a4dfb3/model_texture.jpg",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "mahatma-gandhi",
+      "url": "/mahatma-gandhi/index.html?model=mahatma-gandhi"
+    },
+    {
+      "directory": "jyotiba phule",
+      "name": "Jyotiba Phule",
+      "slug": "jyotiba-phule",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "jyotiba-phule",
+      "url": "/jyotiba%20phule/index.html?model=jyotiba-phule"
+    },
+    {
+      "directory": "Savitribai Phule",
+      "name": "Savitribai Phule",
+      "slug": "savitribai-phule",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "savitribai-phule",
+      "url": "/Savitribai%20Phule/index.html?model=savitribai-phule"
+    },
+    {
+      "directory": "shri ram",
+      "name": "Shri Ram",
+      "slug": "shri-ram",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "Ram.OBJ",
+      "loader": "obj-textured",
+      "textureFile": "Ram lalla.png",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "shri-ram",
+      "url": "/shri%20ram/index.html?model=shri-ram"
+    },
+    {
+      "directory": "natraj",
+      "name": "Natraj",
+      "slug": "natraj",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "natraj.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "natraj",
+      "url": "/natraj/index.html?model=natraj"
+    }
+  ],
+  "models": [
+    {
+      "directory": "ambe maa",
+      "name": "Ambe Maa",
+      "slug": "ambe-maa",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "AMBE MAA-60 MM.stl",
+      "loader": "stl",
+      "textureFile": null,
+      "autoRotate": false,
+      "highlight": "Blessing, strength, and protective energy.",
+      "subtitle": "A devotional representation of the divine mother.",
+      "snapshotName": "ambe-maa",
+      "url": "/ambe%20maa/index.html?model=ambe-maa"
+    },
+    {
+      "directory": "apj abdul kalam",
+      "name": "APJ Abdul Kalam",
+      "slug": "apj-abdul-kalam",
+      "hasDisplayPage": true,
+      "categories": [
+        "scientists-innovators"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Vision, discipline, and scientific inspiration.",
+      "subtitle": "A tribute to the scientist, teacher, and statesman.",
+      "snapshotName": "apj-abdul-kalam",
+      "url": "/apj%20abdul%20kalam/index.html?model=apj-abdul-kalam"
+    },
+    {
+      "directory": "bal gangadhar tilak",
+      "name": "Bal Gangadhar Tilak",
+      "slug": "bal-gangadhar-tilak",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Freedom, resolve, and political awakening.",
+      "subtitle": "A digital homage to the great nationalist leader.",
+      "snapshotName": "bal-gangadhar-tilak",
+      "url": "/bal%20gangadhar%20tilak/index.html?model=bal-gangadhar-tilak"
+    },
+    {
+      "directory": "bankim chndra chatterji",
+      "name": "Bankim Chandra Chatterji",
+      "slug": "bankim-chndra-chatterji",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Literature, patriotism, and cultural pride.",
+      "subtitle": "Celebrating the novelist and composer of Vande Mataram.",
+      "snapshotName": "bankim-chandra-chatterji",
+      "url": "/bankim%20chndra%20chatterji/index.html?model=bankim-chndra-chatterji"
+    },
+    {
+      "directory": "bhagat singh",
+      "name": "Bhagat Singh",
+      "slug": "bhagat-singh",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Courage, sacrifice, and youth-led resistance.",
+      "subtitle": "A fearless revolutionary who became a national icon.",
+      "snapshotName": "bhagat-singh",
+      "url": "/bhagat%20singh/index.html?model=bhagat-singh"
+    },
+    {
+      "directory": "buddha",
+      "name": "Buddha",
+      "slug": "buddha",
+      "hasDisplayPage": true,
+      "categories": [
+        "cultural-icons"
+      ],
+      "modelFile": "Buddha_01.obj",
+      "loader": "obj-textured",
+      "textureFile": "Buddha_01.png",
+      "autoRotate": true,
+      "highlight": "Awareness, compassion, and inner stillness.",
+      "subtitle": "A serene form inspired by enlightenment and peace.",
+      "snapshotName": "buddha",
+      "url": "/buddha/index.html?model=buddha"
+    },
+    {
+      "directory": "bust-of-rabindranath-tagore-gordon-square-ldn",
+      "name": "Bust Of Rabindranath Tagore Gordon Square Ldn",
+      "slug": "bust-of-rabindranath-tagore-gordon-square-ldn",
+      "hasDisplayPage": false,
+      "categories": [
+        "cultural-icons"
+      ],
+      "modelFile": null,
+      "loader": null,
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Art, song, and literary excellence.",
+      "subtitle": "The poet, artist, and Nobel laureate in sculpture form.",
+      "snapshotName": "rabindranath-tagore",
+      "url": null
+    },
+    {
+      "directory": "chanakya",
+      "name": "Chanakya",
+      "slug": "chanakya",
+      "hasDisplayPage": true,
+      "categories": [
+        "cultural-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Wisdom, governance, and policy.",
+      "subtitle": "An homage to the strategist and teacher of statecraft.",
+      "snapshotName": "chanakya",
+      "url": "/chanakya/index.html?model=chanakya"
+    },
+    {
+      "directory": "Chandra Shekhar ajad",
+      "name": "Chandra Shekhar Azad",
+      "slug": "chandra-shekhar-ajad",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Courage, sacrifice, and uncompromising resistance.",
+      "subtitle": "A tribute to the fearless revolutionary of India's freedom movement.",
+      "snapshotName": "chandra-shekhar-azad",
+      "url": "/Chandra%20Shekhar%20ajad/index.html?model=chandra-shekhar-ajad"
+    },
+    {
+      "directory": "dhyanchand",
+      "name": "Dhyanchand",
+      "slug": "dhyanchand",
+      "hasDisplayPage": true,
+      "categories": [
+        "sports-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Athletic excellence, agility, and legacy.",
+      "subtitle": "A tribute to the hockey legend and sporting icon.",
+      "snapshotName": "dhyanchand",
+      "url": "/dhyanchand/index.html?model=dhyanchand"
+    },
+    {
+      "directory": "elephanta-caves-mumbai-india",
+      "name": "Elephanta Caves Mumbai India",
+      "slug": "elephanta-caves-mumbai-india",
+      "hasDisplayPage": false,
+      "categories": [
+        "heritage-artifacts"
+      ],
+      "modelFile": null,
+      "loader": null,
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Architecture, heritage, and sacred sculpture.",
+      "subtitle": "Historic heritage rendered as an exhibition model.",
+      "snapshotName": "elephanta-caves",
+      "url": null
+    },
+    {
+      "directory": "gandhi charkha",
+      "name": "Gandhi Charkha",
+      "slug": "gandhi-charkha",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders",
+        "heritage-artifacts"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Simplicity, independence, and dignity of labor.",
+      "subtitle": "A symbolic craft model representing self-reliance.",
+      "snapshotName": "gandhi-charkha",
+      "url": "/gandhi%20charkha/index.html?model=gandhi-charkha"
+    },
+    {
+      "directory": "ganesha",
+      "name": "Ganesha",
+      "slug": "ganesha",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "ganapati__ganesha.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Beginnings, wisdom, and auspiciousness.",
+      "subtitle": "A classical representation of the remover of obstacles.",
+      "snapshotName": "ganesha",
+      "url": "/ganesha/index.html?model=ganesha"
+    },
+    {
+      "directory": "ganpati",
+      "name": "Ganpati",
+      "slug": "ganpati",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "base.obj",
+      "loader": "obj-textured",
+      "textureFile": "0000.png",
+      "autoRotate": true,
+      "highlight": "Festivity, devotion, and artistry.",
+      "subtitle": "A devotional and celebratory idol model.",
+      "snapshotName": "ganpati",
+      "url": "/ganpati/index.html?model=ganpati"
+    },
+    {
+      "directory": "god vishnu",
+      "name": "God Vishnu",
+      "slug": "god-vishnu",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "God_Vishnu_Riding_on_His_Mount_Garuda_.stl",
+      "loader": "stl",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Preservation, balance, and cosmic order.",
+      "subtitle": "A divine guardian form from the Hindu pantheon.",
+      "snapshotName": "god-vishnu",
+      "url": "/god%20vishnu/index.html?model=god-vishnu"
+    },
+    {
+      "directory": "hanuman",
+      "name": "Hanuman",
+      "slug": "hanuman",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "poly.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Devotion, courage, and unwavering loyalty.",
+      "subtitle": "A heroic devotional figure of strength and service.",
+      "snapshotName": "hanuman",
+      "url": "/hanuman/index.html?model=hanuman"
+    },
+    {
+      "directory": "homi bhabha",
+      "name": "Homi Bhabha",
+      "slug": "homi-bhabha",
+      "hasDisplayPage": true,
+      "categories": [
+        "scientists-innovators"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Scientific leadership and institution building.",
+      "subtitle": "A tribute to the architect of India’s nuclear science program.",
+      "snapshotName": "homi-bhabha",
+      "url": "/homi%20bhabha/index.html?model=homi-bhabha"
+    },
+    {
+      "directory": "jawaharlal nehru",
+      "name": "Jawaharlal Nehru",
+      "slug": "jawaharlal-nehru",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Modern nation building and democratic vision.",
+      "subtitle": "A portrait model of India’s first prime minister.",
+      "snapshotName": "jawaharlal-nehru",
+      "url": "/jawaharlal%20nehru/index.html?model=jawaharlal-nehru"
+    },
+    {
+      "directory": "jyotiba phule",
+      "name": "Jyotiba Phule",
+      "slug": "jyotiba-phule",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "jyotiba-phule",
+      "url": "/jyotiba%20phule/index.html?model=jyotiba-phule"
+    },
+    {
+      "directory": "kapil dev",
+      "name": "Kapil Dev",
+      "slug": "kapil-dev",
+      "hasDisplayPage": true,
+      "categories": [
+        "sports-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Leadership, excellence, and sporting pride.",
+      "subtitle": "A sporting tribute to India’s legendary cricket captain.",
+      "snapshotName": "kapil-dev",
+      "url": "/kapil%20dev/index.html?model=kapil-dev"
+    },
+    {
+      "directory": "kartikeyan",
+      "name": "Kartikeyan",
+      "slug": "kartikeyan",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "muruganMQOR.stl",
+      "loader": "stl",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Valor, youth, and divine strength.",
+      "subtitle": "A divine warrior representation of Kartikeya.",
+      "snapshotName": "kartikeyan",
+      "url": "/kartikeyan/index.html?model=kartikeyan"
+    },
+    {
+      "directory": "krishna",
+      "name": "Krishna",
+      "slug": "krishna",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "krishna_muec.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Joy, wisdom, and transcendental playfulness.",
+      "subtitle": "A graceful devotional model of Lord Krishna.",
+      "snapshotName": "krishna",
+      "url": "/krishna/index.html?model=krishna"
+    },
+    {
+      "directory": "lata mangeshkar",
+      "name": "Lata Mangeshkar",
+      "slug": "lata-mangeshkar",
+      "hasDisplayPage": true,
+      "categories": [
+        "cultural-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Music, grace, and cultural memory.",
+      "subtitle": "A tribute to the nightingale of Indian cinema.",
+      "snapshotName": "lata-mangeshkar",
+      "url": "/lata%20mangeshkar/index.html?model=lata-mangeshkar"
+    },
+    {
+      "directory": "laxmi",
+      "name": "Laxmi",
+      "slug": "laxmi",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "044.Multihead_lakshmi_SQ.stl",
+      "loader": "stl",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Wealth, auspiciousness, and benevolence.",
+      "subtitle": "A divine model symbolizing prosperity and abundance.",
+      "snapshotName": "laxmi",
+      "url": "/laxmi/index.html?model=laxmi"
+    },
+    {
+      "directory": "mahatma-gandhi",
+      "name": "Mahatma Gandhi",
+      "slug": "mahatma-gandhi",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj",
+      "loader": "obj-textured",
+      "textureFile": "source/f948a109c8c843e4a850f30454a4dfb3/model_texture.jpg",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "mahatma-gandhi",
+      "url": "/mahatma-gandhi/index.html?model=mahatma-gandhi"
+    },
+    {
+      "directory": "mother teresa",
+      "name": "Mother Teresa",
+      "slug": "mother-teresa",
+      "hasDisplayPage": true,
+      "categories": [
+        "cultural-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Care, humility, and humanitarian work.",
+      "subtitle": "A sculptural tribute to compassion and service.",
+      "snapshotName": "mother-teresa",
+      "url": "/mother%20teresa/index.html?model=mother-teresa"
+    },
+    {
+      "directory": "natraj",
+      "name": "Natraj",
+      "slug": "natraj",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "natraj.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "natraj",
+      "url": "/natraj/index.html?model=natraj"
+    },
+    {
+      "directory": "rajendra prasad",
+      "name": "Rajendra Prasad",
+      "slug": "rajendra-prasad",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Constitutional leadership and public service.",
+      "subtitle": "A founding-era portrait model of India’s first president.",
+      "snapshotName": "rajendra-prasad",
+      "url": "/rajendra%20prasad/index.html?model=rajendra-prasad"
+    },
+    {
+      "directory": "rajmudra",
+      "name": "Rajmudra",
+      "slug": "rajmudra",
+      "hasDisplayPage": true,
+      "categories": [
+        "heritage-artifacts"
+      ],
+      "modelFile": "rajmudra.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Authority, sovereignty, and legacy.",
+      "subtitle": "The royal seal associated with Maratha identity.",
+      "snapshotName": "rajmudra",
+      "url": "/rajmudra/index.html?model=rajmudra"
+    },
+    {
+      "directory": "rakesh sharma",
+      "name": "Rakesh Sharma",
+      "slug": "rakesh-sharma",
+      "hasDisplayPage": true,
+      "categories": [
+        "scientists-innovators"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Exploration, science, and national achievement.",
+      "subtitle": "India’s first astronaut, captured in a tribute model.",
+      "snapshotName": "rakesh-sharma",
+      "url": "/rakesh%20sharma/index.html?model=rakesh-sharma"
+    },
+    {
+      "directory": "ramanujan",
+      "name": "Ramanujan",
+      "slug": "ramanujan",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons",
+        "scientists-innovators"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Mathematics, ingenuity, and discovery.",
+      "subtitle": "A model honoring mathematical genius and intuition.",
+      "snapshotName": "ramanujan",
+      "url": "/ramanujan/index.html?model=ramanujan"
+    },
+    {
+      "directory": "sachin tendulkar",
+      "name": "Sachin Tendulkar",
+      "slug": "sachin-tendulkar",
+      "hasDisplayPage": true,
+      "categories": [
+        "sports-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Mastery, discipline, and cricketing excellence.",
+      "subtitle": "A sporting icon rendered for the collection.",
+      "snapshotName": "sachin-tendulkar",
+      "url": "/sachin%20tendulkar/index.html?model=sachin-tendulkar"
+    },
+    {
+      "directory": "sambhaji",
+      "name": "Sambhaji",
+      "slug": "sambhaji",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "base.obj",
+      "loader": "obj-textured",
+      "textureFile": "sambhaji.png",
+      "autoRotate": true,
+      "highlight": "Honor, resilience, and legacy.",
+      "subtitle": "An alternate showcase of the Maratha monarch.",
+      "snapshotName": "sambhaji",
+      "url": "/sambhaji/index.html?model=sambhaji"
+    },
+    {
+      "directory": "sambhaji maharaj",
+      "name": "Sambhaji Maharaj",
+      "slug": "sambhaji-maharaj",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Resistance, leadership, and sacrifice.",
+      "subtitle": "A tribute to the courageous Maratha ruler.",
+      "snapshotName": "sambhaji-maharaj",
+      "url": "/sambhaji%20maharaj/index.html?model=sambhaji-maharaj"
+    },
+    {
+      "directory": "sardar vallabhai patel",
+      "name": "Sardar Vallabhai Patel",
+      "slug": "sardar-vallabhai-patel",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Unity, administration, and nation building.",
+      "subtitle": "A unifying figure in India’s modern history.",
+      "snapshotName": "sardar-vallabhbhai-patel",
+      "url": "/sardar%20vallabhai%20patel/index.html?model=sardar-vallabhai-patel"
+    },
+    {
+      "directory": "sarojini naidu",
+      "name": "Sarojini Naidu",
+      "slug": "sarojini-naidu",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Poetry, oratory, and civic leadership.",
+      "subtitle": "The nightingale of India in sculptural form.",
+      "snapshotName": "sarojini-naidu",
+      "url": "/sarojini%20naidu/index.html?model=sarojini-naidu"
+    },
+    {
+      "directory": "sarswati",
+      "name": "Sarswati",
+      "slug": "sarswati",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "saraswati.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Learning, speech, and creative grace.",
+      "subtitle": "A devotional model representing knowledge and arts.",
+      "snapshotName": "sarswati",
+      "url": "/sarswati/index.html?model=sarswati"
+    },
+    {
+      "directory": "Savitribai Phule",
+      "name": "Savitribai Phule",
+      "slug": "savitribai-phule",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "savitribai-phule",
+      "url": "/Savitribai%20Phule/index.html?model=savitribai-phule"
+    },
+    {
+      "directory": "shankh",
+      "name": "Shankh",
+      "slug": "shankh",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "Blowing Shankh.obj",
+      "loader": "obj",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Purity, invocation, and ceremonial sound.",
+      "subtitle": "A sacred conch model used in ritual and symbolism.",
+      "snapshotName": "shankh",
+      "url": "/shankh/index.html?model=shankh"
+    },
+    {
+      "directory": "shiva",
+      "name": "Shiva",
+      "slug": "shiva",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "base.obj",
+      "loader": "obj-textured",
+      "textureFile": "lord-shiva-the-founder-of-yoga.jpg",
+      "autoRotate": true,
+      "highlight": "Transformation, meditation, and cosmic balance.",
+      "subtitle": "A divine sculptural representation of Mahadev.",
+      "snapshotName": "shiva",
+      "url": "/shiva/index.html?model=shiva"
+    },
+    {
+      "directory": "shivaji",
+      "name": "Shivaji",
+      "slug": "shivaji",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons",
+        "freedom-leaders"
+      ],
+      "modelFile": "Chatrapati Shivaji Maharaj Bust.STL",
+      "loader": "stl",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Leadership, fortitude, and sovereignty.",
+      "subtitle": "A regal tribute to the founder of the Maratha Empire.",
+      "snapshotName": "shivaji-maharaj",
+      "url": "/shivaji/index.html?model=shivaji"
+    },
+    {
+      "directory": "shri ram",
+      "name": "Shri Ram",
+      "slug": "shri-ram",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "Ram.OBJ",
+      "loader": "obj-textured",
+      "textureFile": "Ram lalla.png",
+      "autoRotate": true,
+      "highlight": null,
+      "subtitle": null,
+      "snapshotName": "shri-ram",
+      "url": "/shri%20ram/index.html?model=shri-ram"
+    },
+    {
+      "directory": "statue-of-gandhi",
+      "name": "Statue Of Gandhi",
+      "slug": "statue-of-gandhi",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders",
+        "heritage-artifacts"
+      ],
+      "modelFile": "source/poly.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Nonviolence, moral clarity, and freedom.",
+      "subtitle": "A commemorative tribute to Mahatma Gandhi.",
+      "snapshotName": "statue-of-gandhi",
+      "url": "/statue-of-gandhi/index.html?model=statue-of-gandhi"
+    },
+    {
+      "directory": "subhash chandra bose",
+      "name": "Subhash Chandra Bose",
+      "slug": "subhash-chandra-bose",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Resolve, mobilization, and independence.",
+      "subtitle": "A tribute to the revolutionary leader Netaji.",
+      "snapshotName": "subhash-chandra-bose",
+      "url": "/subhash%20chandra%20bose/index.html?model=subhash-chandra-bose"
+    },
+    {
+      "directory": "swami vivekanand",
+      "name": "Swami Vivekanand",
+      "slug": "swami-vivekanand",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Unity, philosophy, and self-realization.",
+      "subtitle": "An icon of spiritual philosophy and service.",
+      "snapshotName": "swami-vivekanand",
+      "url": "/swami%20vivekanand/index.html?model=swami-vivekanand"
+    },
+    {
+      "directory": "tatya tope",
+      "name": "Tatya Tope",
+      "slug": "tatya-tope",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Resistance, bravery, and revolutionary spirit.",
+      "subtitle": "A heroic model honoring the 1857 uprising leader.",
+      "snapshotName": "tatya-tope",
+      "url": "/tatya%20tope/index.html?model=tatya-tope"
+    },
+    {
+      "directory": "teracotta figures",
+      "name": "Teracotta Figures",
+      "slug": "teracotta-figures",
+      "hasDisplayPage": true,
+      "categories": [
+        "heritage-artifacts"
+      ],
+      "modelFile": "2145_3dscan 33.obj",
+      "loader": "obj-textured",
+      "textureFile": "2145_3dscan_33.jpg",
+      "autoRotate": true,
+      "highlight": "Craft, material culture, and handwork.",
+      "subtitle": "A heritage craft collection rendered as a model.",
+      "snapshotName": "teracotta-figures",
+      "url": "/teracotta%20figures/index.html?model=teracotta-figures"
+    },
+    {
+      "directory": "tipus tiger",
+      "name": "Tipus Tiger",
+      "slug": "tipus-tiger",
+      "hasDisplayPage": true,
+      "categories": [
+        "heritage-artifacts"
+      ],
+      "modelFile": "Tipu Tiger.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Power, ingenuity, and historical memory.",
+      "subtitle": "A historic emblem of resistance and engineering.",
+      "snapshotName": "tipus-tiger",
+      "url": "/tipus%20tiger/index.html?model=tipus-tiger"
+    },
+    {
+      "directory": "trishul",
+      "name": "Trishul",
+      "slug": "trishul",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "trishul.glb",
+      "loader": "glb",
+      "textureFile": null,
+      "autoRotate": true,
+      "highlight": "Protection, balance, and spiritual power.",
+      "subtitle": "A sacred trident symbolizing divine force.",
+      "snapshotName": "trishul",
+      "url": "/trishul/index.html?model=trishul"
+    },
+    {
+      "directory": "valmiki",
+      "name": "Valmiki",
+      "slug": "valmiki",
+      "hasDisplayPage": true,
+      "categories": [
+        "cultural-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Poetry, wisdom, and foundational storytelling.",
+      "subtitle": "The sage poet honored in a classic display page.",
+      "snapshotName": "valmiki",
+      "url": "/valmiki/index.html?model=valmiki"
+    },
+    {
+      "directory": "vikram sarabhai",
+      "name": "Vikram Sarabhai",
+      "slug": "vikram-sarabhai",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons",
+        "scientists-innovators"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Innovation, vision, and scientific institution building.",
+      "subtitle": "The father of India’s space program in sculpture form.",
+      "snapshotName": "vikram-sarabhai",
+      "url": "/vikram%20sarabhai/index.html?model=vikram-sarabhai"
+    },
+    {
+      "directory": "vinayak savarkar",
+      "name": "Vinayak Savarkar",
+      "slug": "vinayak-savarkar",
+      "hasDisplayPage": true,
+      "categories": [
+        "freedom-leaders"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Ideology, activism, and political thought.",
+      "subtitle": "A historical portrait model of a nationalist leader.",
+      "snapshotName": "vinayak-savarkar",
+      "url": "/vinayak%20savarkar/index.html?model=vinayak-savarkar"
+    },
+    {
+      "directory": "Visvesvaraya",
+      "name": "Visvesvaraya",
+      "slug": "visvesvaraya",
+      "hasDisplayPage": true,
+      "categories": [
+        "scientists-innovators"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Engineering, planning, and modernization.",
+      "subtitle": "A model honoring the engineer and statesman.",
+      "snapshotName": "visvesvaraya",
+      "url": "/Visvesvaraya/index.html?model=visvesvaraya"
+    },
+    {
+      "directory": "vitthal & rukhmini",
+      "name": "Vitthal & Rukhmini",
+      "slug": "vitthal-rukhmini",
+      "hasDisplayPage": true,
+      "categories": [
+        "divine-icons"
+      ],
+      "modelFile": "Pbr/base.obj",
+      "loader": "obj-textured",
+      "textureFile": "Pbr/texture_diffuse.png",
+      "autoRotate": true,
+      "highlight": "Faith, devotion, and cultural celebration.",
+      "subtitle": "A devotional pair rendered in sacred form.",
+      "snapshotName": "vitthal-rukhmini",
+      "url": "/vitthal%20%26%20rukhmini/index.html?model=vitthal-rukhmini"
+    }
+  ]
+}

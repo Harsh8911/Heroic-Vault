@@ -8,47 +8,44 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        .hover-scale {
-            transition: transform 0.3s ease;
+        .lift {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .hover-scale:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.12);
         }
 
-        .available-model-item {
-            transition: all 0.3s ease;
+        .category-chip {
+            border: 1px solid #fed7aa;
+            background: #fff7ed;
+            color: #9a3412;
+            padding: 0.45rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
-        .available-model-item:hover {
-            background-color: transparent;
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+        .category-chip.active {
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 10px 18px rgba(234, 88, 12, 0.35);
         }
 
-        .model-grid-item {
-            transition: all 0.3s ease;
-        }
-
-        .model-grid-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .feature-icon:hover {
-            transform: scale(1.1) rotate(5deg);
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 237, 213, 0.95);
         }
     </style>
 </head>
 
-<body class="bg-white text-gray-900">
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+<body class="bg-orange-50/40 text-slate-900">
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                 Heroic Vault
@@ -58,290 +55,110 @@
                 <a href="heritage.html" class="text-gray-700 hover:text-orange-600 transition">Heritage</a>
                 <a href="culture.html" class="text-gray-700 hover:text-orange-600 transition">Culture</a>
                 <a href="studios.html" class="text-orange-600 font-semibold">Studios</a>
-                <a href="contactpage.html" class="px-6 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full hover:shadow-lg transition">
+                <a href="ContactPage.html" class="px-6 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full hover:shadow-lg transition">
                     Contact
                 </a>
             </div>
         </div>
     </nav>
-    <header class="pt-32 pb-20 px-6 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Explore Our
-                <span class="block bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                    3D Model Collection
-                </span>
-            </h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                Discover high-quality 3D models of legendary figures, divine sculptures, and cultural icons
-            </p>
-            <div class="max-w-2xl mx-auto">
-                <div class="flex items-center gap-2">
-                    <input type="text" id="search-input" placeholder="Search 3D Models..."
-                        class="flex-1 px-6 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    <button onclick="searchModels()"
-                        class="bg-gradient-to-r from-orange-600 to-red-600 hover:shadow-lg text-white px-6 py-3 rounded-r-lg transition">
-                        Search
-                    </button>
+
+    <header class="pt-32 pb-16 px-6 bg-gradient-to-br from-amber-100 via-orange-50 to-red-100 relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 h-56 w-56 rounded-full bg-orange-300/20 blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-red-300/20 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto relative">
+            <div class="text-center mb-10">
+                <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-5 leading-tight">
+                    Studios Catalog
+                    <span class="block bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">All Models, One Place</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto">
+                    Explore divine icons, freedom leaders, scientists, sports legends, and cultural artifacts with advanced filters and instant search.
+                </p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-4 md:p-6 shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                    <div class="md:col-span-5">
+                        <input type="text" id="search-input" placeholder="Search by name, highlight, or subtitle"
+                            class="w-full px-4 py-3 rounded-xl border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+                    <div class="md:col-span-3">
+                        <select id="category-filter" class="w-full px-4 py-3 rounded-xl border border-orange-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <select id="page-filter" class="w-full px-4 py-3 rounded-xl border border-orange-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            <option value="all">All Models</option>
+                            <option value="available">Display Ready</option>
+                            <option value="coming-soon">Coming Soon</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <select id="sort-filter" class="w-full px-4 py-3 rounded-xl border border-orange-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            <option value="name-asc">A to Z</option>
+                            <option value="name-desc">Z to A</option>
+                            <option value="available-first">Display Ready First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex flex-wrap items-center gap-2" id="category-chips"></div>
+
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-4 gap-3 text-sm">
+                    <div class="bg-white rounded-xl px-4 py-3 border border-orange-100">
+                        <p class="text-slate-500">Total Models</p>
+                        <p id="stat-total" class="text-2xl font-bold text-slate-900">0</p>
+                    </div>
+                    <div class="bg-white rounded-xl px-4 py-3 border border-orange-100">
+                        <p class="text-slate-500">Display Ready</p>
+                        <p id="stat-ready" class="text-2xl font-bold text-emerald-600">0</p>
+                    </div>
+                    <div class="bg-white rounded-xl px-4 py-3 border border-orange-100">
+                        <p class="text-slate-500">Coming Soon</p>
+                        <p id="stat-coming" class="text-2xl font-bold text-amber-600">0</p>
+                    </div>
+                    <div class="bg-white rounded-xl px-4 py-3 border border-orange-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-slate-500">Filtered</p>
+                            <p id="stat-filtered" class="text-2xl font-bold text-slate-900">0</p>
+                        </div>
+                        <button id="clear-filters" class="px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium">Reset</button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-20">
-        <!-- Featured Models Section -->
-        <section class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Models</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Explore our premium collection of meticulously crafted 3D models</p>
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Featured Models</h2>
+                    <p class="text-slate-600">Highlighted entries from your curated collection.</p>
+                </div>
             </div>
-
-            <div id="available-models-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Mahatma Gandhi Model -->
-                <a href="\mahatma-gandhi\index.html?model=mahatma-gandhi"
-                    class="available-model-item bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
-                        <i class="fas fa-user-tie text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                            <span class="font-semibold text-gray-900">Mahatma Gandhi</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">A detailed 3D model commemorating the Father of the Nation.</p>
-                        <span class="inline-block text-sm text-green-600 font-medium">In Stock</span>
-                    </div>
-                </a>
-
-                <!-- Jyotiba Phule Model -->
-                <a href="\jyotiba phule\index.html?model=jyotiba-phule"
-                    class="available-model-item bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
-                        <i class="fas fa-book-open text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                            <span class="font-semibold text-gray-900">Jyotiba Phule</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Tribute to the social reformer who fought for education and equality.</p>
-                        <span class="inline-block text-sm text-green-600 font-medium">In Stock</span>
-                    </div>
-                </a>
-
-                <!-- Savitribai Phule Model -->
-                <a href="\Savitribai Phule\index.html?model=savitribai-phule"
-                    class="available-model-item bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
-                        <i class="fas fa-heart text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                            <span class="font-semibold text-gray-900">Savitribai Phule</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Honoring the pioneer of women's education in India.</p>
-                        <span class="inline-block text-sm text-green-600 font-medium">In Stock</span>
-                    </div>
-                </a>
-
-                <!-- Lord Ram Model -->
-                <a href="\shri ram\index.html?model=lord-ram"
-                    class="available-model-item bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
-                        <i class="fas fa-crown text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                            <span class="font-semibold text-gray-900">Lord Ram</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">A divine 3D model capturing the essence of Lord Ram.</p>
-                        <span class="inline-block text-sm text-green-600 font-medium">In Stock</span>
-                    </div>
-                </a>
-
-                <!-- Natraj Model -->
-                <a href="\natraj\index.html?model=natraj"
-                    class="available-model-item bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
-                        <i class="fas fa-dharmachakra text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                            <span class="font-semibold text-gray-900">Natraj</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">An artistic 3D representation of Lord Shiva's cosmic dance form.</p>
-                        <span class="inline-block text-sm text-green-600 font-medium">In Stock</span>
-                    </div>
-                </a>
-
-                <!-- Coming Soon -->
-                <a href="#"
-                    class="available-model-item bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <i class="fas fa-clock text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
-                            <span class="font-semibold text-gray-900">Coming Soon</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Other exceptional models are coming soon, launching early next year.</p>
-                        <span class="inline-block text-sm text-gray-600 font-medium">Pre-order</span>
-                    </div>
-                </a>
-            </div>
+            <div id="available-models-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
-        <!-- All Models Section -->
         <section>
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Complete Collection</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Browse our entire catalog of 3D models from religious figures to historical icons</p>
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Complete Collection</h2>
+                    <p class="text-slate-600">Models are grouped with your own category taxonomy and availability status.</p>
+                </div>
             </div>
-
-            <div id="models-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Ganpati</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Lord Shiva</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Lord Vishnu</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Lord Ram</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Sarswati</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Rishi Valmiki</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Hanuman</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Ambe Maa</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Natraj</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Vitthal & Rukhmini</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Shankh</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Shivaji Maharaj</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Sambhaji Maharaj</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Shivaji Maharaj Rajmudra</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Gandhi Charkha</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Jawaharlal Nehru</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Mahatma Gandhi</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Dhayanchand</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Ravindranath Tagore</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Sardar Vallabhbhai Patel</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Bhagat Singh</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Bal Gangadhar Tilak</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Jyotiba Phule</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Savitribai Phule</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Ramanujan</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Swami Vivekanand</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Subhash Chandra Bose</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Vinayak Savarkar</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Rakesh Sharma</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Sachin Tendulkar</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Chanakya</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Tatya tope</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">APJ Abdul Kalam</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Rajendra Prasad</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Bankim Chandra Chattopadhyay</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Lata Mangeshkar</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Mother Teresa</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Homi Bhabha</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Vikram Sarabhai</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Kapil Dev</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Chandra Shekhar Azad</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Visvesvaraya</span>
-                </a>
-                <a href="#" class="model-grid-item bg-white hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 rounded-lg p-4 flex flex-col items-center">
-                    <span class="text-lg font-medium text-gray-900">Sarojini Naidu</span>
-                </a>
-            </div>
+            <div id="models-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
         </section>
     </main>
 
-    <footer class="bg-gradient-to-br from-gray-900 to-slate-800 text-white py-16 px-6 mt-20">
+    <footer class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 px-6 mt-20">
         <div class="max-w-7xl mx-auto">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div>
                     <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">Heroic Vault</h3>
-                    <p class="text-gray-400 leading-relaxed">Preserving India's cultural heritage for future generations through digital innovation and 3D artistry.</p>
+                    <p class="text-gray-400 leading-relaxed">Preserving cultural heritage through digital innovation and 3D artistry.</p>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
@@ -357,49 +174,252 @@
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="studios.html" class="hover:text-orange-400 transition">3D Studios</a></li>
                         <li><a href="/#gallery" class="hover:text-orange-400 transition">Gallery</a></li>
-                        <li><a href="contactpage.html" class="hover:text-orange-400 transition">Contact</a></li>
+                        <li><a href="ContactPage.html" class="hover:text-orange-400 transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Contact</h4>
                     <p class="text-gray-400 mb-2">Phone: +91 8010545026</p>
                     <p class="text-gray-400 mb-4">Location: Nashik, India</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
-                <p>&copy; 2024 Heroic Vault. All rights reserved.</p>
+                <p>&copy; 2026 Heroic Vault. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        function searchModels() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
-            const modelCards = document.querySelectorAll('#models-grid a');
+        const categoryLabels = {
+            'divine-icons': 'Divine Icons',
+            'freedom-leaders': 'Freedom Leaders',
+            'scientists-innovators': 'Scientists & Innovators',
+            'sports-icons': 'Sports Icons',
+            'cultural-icons': 'Cultural Icons',
+            'heritage-artifacts': 'Heritage Artifacts',
+            'historical-icons': 'Historical Icons'
+        };
 
-            modelCards.forEach(card => {
-                const modelName = card.querySelector('span').textContent.toLowerCase();
-                if (modelName.includes(searchInput)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+        const featuredIconMap = {
+            'mahatma-gandhi': 'fa-user-tie',
+            'jyotiba-phule': 'fa-book-open',
+            'savitribai-phule': 'fa-heart',
+            'shri-ram': 'fa-crown',
+            natraj: 'fa-dharmachakra'
+        };
+
+        const state = {
+            models: [],
+            featured: [],
+            selectedChipCategory: 'all'
+        };
+
+        function categoryLabel(value) {
+            return categoryLabels[value] || value.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+        }
+
+        function categoryBadge(category) {
+            return `<span class="text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-700 font-semibold">${categoryLabel(category)}</span>`;
+        }
+
+        function getFilters() {
+            const categorySelect = document.getElementById('category-filter').value;
+            const category = state.selectedChipCategory !== 'all' ? state.selectedChipCategory : categorySelect;
+
+            return {
+                search: document.getElementById('search-input').value.toLowerCase().trim(),
+                category,
+                page: document.getElementById('page-filter').value,
+                sort: document.getElementById('sort-filter').value
+            };
+        }
+
+        function matchesFilters(model, filters) {
+            const searchable = `${model.name || ''} ${model.subtitle || ''} ${model.highlight || ''}`.toLowerCase();
+            const categories = Array.isArray(model.categories) ? model.categories : [];
+
+            const matchSearch = !filters.search || searchable.includes(filters.search);
+            const matchCategory = filters.category === 'all' || categories.includes(filters.category);
+            const matchPage = filters.page === 'all'
+                || (filters.page === 'available' && model.hasDisplayPage)
+                || (filters.page === 'coming-soon' && !model.hasDisplayPage);
+
+            return matchSearch && matchCategory && matchPage;
+        }
+
+        function sortModels(models, sort) {
+            const clone = [...models];
+            if (sort === 'name-desc') {
+                clone.sort((a, b) => b.name.localeCompare(a.name));
+                return clone;
+            }
+            if (sort === 'available-first') {
+                clone.sort((a, b) => Number(b.hasDisplayPage) - Number(a.hasDisplayPage) || a.name.localeCompare(b.name));
+                return clone;
+            }
+            clone.sort((a, b) => a.name.localeCompare(b.name));
+            return clone;
+        }
+
+        function updateStats(filteredModels) {
+            const total = state.models.length;
+            const ready = state.models.filter((m) => m.hasDisplayPage).length;
+            document.getElementById('stat-total').textContent = String(total);
+            document.getElementById('stat-ready').textContent = String(ready);
+            document.getElementById('stat-coming').textContent = String(total - ready);
+            document.getElementById('stat-filtered').textContent = String(filteredModels.length);
+        }
+
+        function renderCategoryControls() {
+            const categories = new Set();
+            state.models.forEach((model) => {
+                (model.categories || []).forEach((category) => categories.add(category));
+            });
+
+            const ordered = ['all', ...Array.from(categories).sort((a, b) => categoryLabel(a).localeCompare(categoryLabel(b)))];
+
+            const select = document.getElementById('category-filter');
+            select.innerHTML = ordered.map((category) => {
+                const label = category === 'all' ? 'All Categories' : categoryLabel(category);
+                return `<option value="${category}">${label}</option>`;
+            }).join('');
+
+            const chips = document.getElementById('category-chips');
+            chips.innerHTML = ordered.map((category) => {
+                const count = category === 'all'
+                    ? state.models.length
+                    : state.models.filter((model) => (model.categories || []).includes(category)).length;
+                const label = category === 'all' ? 'All' : categoryLabel(category);
+                const active = category === state.selectedChipCategory ? 'active' : '';
+                return `<button type="button" class="category-chip ${active}" data-category="${category}">${label} (${count})</button>`;
+            }).join('');
+
+            chips.querySelectorAll('button').forEach((button) => {
+                button.addEventListener('click', () => {
+                    state.selectedChipCategory = button.dataset.category;
+                    document.getElementById('category-filter').value = state.selectedChipCategory;
+                    applyFilters();
+                });
             });
         }
 
-        // Add event listener for real-time search
-        document.getElementById('search-input').addEventListener('input', searchModels);
+        function renderFeatured(models) {
+            const target = document.getElementById('available-models-list');
+            target.innerHTML = '';
+
+            if (!models.length) {
+                target.innerHTML = '<div class="col-span-full rounded-2xl bg-white p-8 text-center text-slate-500 border border-orange-100">No featured models match the selected filters.</div>';
+                return;
+            }
+
+            models.forEach((model) => {
+                const icon = featuredIconMap[model.slug] || 'fa-cube';
+                const badges = (model.categories || []).slice(0, 2).map(categoryBadge).join(' ');
+                target.insertAdjacentHTML('beforeend', `
+                    <a href="${model.url || '#'}" class="lift bg-white rounded-2xl border border-orange-100 shadow-sm overflow-hidden ${model.hasDisplayPage ? '' : 'pointer-events-none opacity-70'}">
+                        <div class="h-40 bg-gradient-to-br from-orange-200 to-red-200 flex items-center justify-center">
+                            <i class="fas ${icon} text-white text-5xl"></i>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <h3 class="font-bold text-lg text-slate-900">${model.name}</h3>
+                                <span class="text-xs font-semibold ${model.hasDisplayPage ? 'text-emerald-600' : 'text-amber-600'}">${model.hasDisplayPage ? 'Display Ready' : 'Coming Soon'}</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-3">${model.subtitle || model.highlight || '3D model from Heroic Vault collection.'}</p>
+                            <div class="flex flex-wrap gap-2">${badges}</div>
+                        </div>
+                    </a>
+                `);
+            });
+        }
+
+        function renderCollection(models) {
+            const target = document.getElementById('models-grid');
+            target.innerHTML = '';
+
+            if (!models.length) {
+                target.innerHTML = '<div class="col-span-full rounded-2xl bg-white p-10 text-center text-slate-500 border border-orange-100">No models match the selected filters.</div>';
+                return;
+            }
+
+            models.forEach((model) => {
+                const badges = (model.categories || []).map(categoryBadge).join(' ');
+
+                if (model.hasDisplayPage && model.url) {
+                    target.insertAdjacentHTML('beforeend', `
+                        <a href="${model.url}" class="lift bg-white rounded-2xl border border-orange-100 shadow-sm p-5">
+                            <div class="flex items-start justify-between gap-2 mb-2">
+                                <h3 class="font-semibold text-slate-900 leading-tight">${model.name}</h3>
+                                <span class="text-[11px] px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">Ready</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-3 min-h-[40px]">${model.highlight || model.subtitle || 'Interactive viewer page is available.'}</p>
+                            <div class="flex flex-wrap gap-2 mb-3">${badges}</div>
+                            <span class="text-sm font-semibold text-orange-700">Open Display Page</span>
+                        </a>
+                    `);
+                    return;
+                }
+
+                target.insertAdjacentHTML('beforeend', `
+                    <div class="bg-white/80 rounded-2xl border border-orange-100 p-5 opacity-80">
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <h3 class="font-semibold text-slate-800 leading-tight">${model.name}</h3>
+                            <span class="text-[11px] px-2 py-1 rounded-full bg-amber-100 text-amber-700 font-semibold">Soon</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-3 min-h-[40px]">Display page is being prepared for this model.</p>
+                        <div class="flex flex-wrap gap-2">${badges}</div>
+                    </div>
+                `);
+            });
+        }
+
+        function applyFilters() {
+            const filters = getFilters();
+            const filteredModels = sortModels(state.models.filter((model) => matchesFilters(model, filters)), filters.sort);
+            const filteredFeatured = sortModels(state.featured.filter((model) => matchesFilters(model, filters)), filters.sort);
+
+            renderFeatured(filteredFeatured);
+            renderCollection(filteredModels);
+            updateStats(filteredModels);
+            renderCategoryControls();
+        }
+
+        async function loadCatalog() {
+            try {
+                const response = await fetch('/models-catalog.json', { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`Catalog load failed (${response.status})`);
+                }
+
+                const catalog = await response.json();
+                state.models = Array.isArray(catalog.models) ? catalog.models : [];
+                state.featured = Array.isArray(catalog.featuredModels) ? catalog.featuredModels : [];
+
+                renderCategoryControls();
+                applyFilters();
+            } catch (error) {
+                console.error('[studios] Unable to load catalog', error);
+                document.getElementById('models-grid').innerHTML = '<div class="rounded-2xl bg-red-50 border border-red-200 p-8 text-red-700">Unable to load catalog. Please refresh.</div>';
+            }
+        }
+
+        document.getElementById('search-input').addEventListener('input', applyFilters);
+        document.getElementById('category-filter').addEventListener('change', function () {
+            state.selectedChipCategory = this.value;
+            applyFilters();
+        });
+        document.getElementById('page-filter').addEventListener('change', applyFilters);
+        document.getElementById('sort-filter').addEventListener('change', applyFilters);
+        document.getElementById('clear-filters').addEventListener('click', () => {
+            document.getElementById('search-input').value = '';
+            document.getElementById('category-filter').value = 'all';
+            document.getElementById('page-filter').value = 'all';
+            document.getElementById('sort-filter').value = 'name-asc';
+            state.selectedChipCategory = 'all';
+            applyFilters();
+        });
+
+        loadCatalog();
     </script>
 </body>
 

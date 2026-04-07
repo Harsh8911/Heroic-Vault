@@ -10,14 +10,16 @@
   <link rel="stylesheet" href="../model-viewer.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+  
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
       <h1 class="brand">Heroic Vault</h1>
-      <a class="back-link" href="/">Back to Collection</a>
+      <a class="back-link" href="/studios.html">Back to Studios</a>
     </div>
   </header>
 
@@ -62,19 +64,19 @@
 
         <aside class="info-side">
           <h2 class="side-title">Mahatma Gandhi</h2>
-          <p class="side-sub">Leader of satyagraha, non-violent resistance, and ethical politics.</p>
+          <p class="side-sub">Mahatma Gandhi from the Heroic Vault 3D collection.</p>
           <div class="meta-list">
             <div class="meta-item">
-              <strong>Birth</strong>
-              October 2, 1869
+              <strong>Highlight</strong>
+              Digitally preserved model prepared for interactive viewing.
             </div>
             <div class="meta-item">
-              <strong>Known For</strong>
-              Non-violent civil disobedience and freedom movement leadership.
+              <strong>Scene Type</strong>
+              Heroic Vault Collection
             </div>
             <div class="meta-item">
-              <strong>Legacy</strong>
-              Inspired democratic and civil rights struggles worldwide.
+              <strong>File</strong>
+              source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj
             </div>
           </div>
         </aside>
@@ -84,15 +86,15 @@
     <section class="content-grid">
       <article class="panel">
         <h3>About</h3>
-        <p>Mahatma Gandhi mobilized millions through peaceful protest and moral courage. His teachings made non-violence a practical instrument for social transformation.</p>
+        <p>Digitally preserved model prepared for interactive viewing.</p>
       </article>
       <article class="panel">
-        <h3>Core Ideals</h3>
-        <p>Ahimsa, satya, self-discipline, and public service shaped his strategy and his model of leadership.</p>
+        <h3>Collection</h3>
+        <p>This model is now connected to the Studios page and rendered directly from the shared catalog.</p>
       </article>
       <article class="panel">
-        <h3>Historical Impact</h3>
-        <p>His methods influenced global movements for justice and civil rights, from South Africa to the United States.</p>
+        <h3>Display</h3>
+        <p>Use the viewer controls to rotate, reset, inspect, and capture a snapshot of the model.</p>
       </article>
     </section>
   </main>
@@ -104,47 +106,43 @@
       snapshotName: "mahatma-gandhi",
       loadModel: function (ctx) {
         return new Promise(function (resolve, reject) {
-          var mtlLoader = new THREE.MTLLoader();
-          var objLoader = new THREE.OBJLoader();
           var textureLoader = new THREE.TextureLoader();
+          var objLoader = new THREE.OBJLoader();
 
-          textureLoader.load("./source/f948a109c8c843e4a850f30454a4dfb3/model_texture.jpg", function (texture) {
-            mtlLoader.load("./source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj.mtl", function (materials) {
-              materials.preload();
-              objLoader.setMaterials(materials);
+          textureLoader.load("source/f948a109c8c843e4a850f30454a4dfb3/model_texture.jpg", function (texture) {
+            objLoader.load("source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj", function (object) {
+              var material = new THREE.MeshStandardMaterial({
+                map: texture,
+                metalness: 0.24,
+                roughness: 0.74,
+                side: THREE.DoubleSide
+              });
 
-              objLoader.load("./source/f948a109c8c843e4a850f30454a4dfb3/model_mesh.obj", function (object) {
-                object.traverse(function (child) {
-                  if (child && child.isMesh) {
-                    child.material = new THREE.MeshStandardMaterial({
-                      map: texture,
-                      metalness: 0.22,
-                      roughness: 0.82,
-                      side: THREE.DoubleSide
-                    });
-                    child.castShadow = true;
-                    child.receiveShadow = true;
-                  }
-                });
-
-                var box = new THREE.Box3().setFromObject(object);
-                var center = box.getCenter(new THREE.Vector3());
-                var size = box.getSize(new THREE.Vector3());
-                var maxDim = Math.max(size.x, size.y, size.z);
-                var scale = 5 / maxDim;
-
-                object.position.sub(center);
-                object.scale.setScalar(scale);
-
-                ctx.scene.add(object);
-                ctx.onProgress(100, "Model ready");
-                resolve(object);
-              }, function (xhr) {
-                if (xhr.total) {
-                  ctx.onProgress((xhr.loaded / xhr.total) * 100, "Loading geometry...");
+              object.traverse(function (child) {
+                if (child && child.isMesh) {
+                  child.material = material;
+                  child.castShadow = true;
+                  child.receiveShadow = true;
                 }
-              }, reject);
-            }, undefined, reject);
+              });
+
+              var box = new THREE.Box3().setFromObject(object);
+              var center = box.getCenter(new THREE.Vector3());
+              var size = box.getSize(new THREE.Vector3());
+              var maxDim = Math.max(size.x, size.y, size.z);
+              var scale = 6 / maxDim;
+
+              object.position.sub(center);
+              object.scale.setScalar(scale);
+
+              ctx.scene.add(object);
+              ctx.onProgress(100, 'Model ready');
+              resolve(object);
+            }, function (xhr) {
+              if (xhr.total) {
+                ctx.onProgress((xhr.loaded / xhr.total) * 100, 'Loading geometry...');
+              }
+            }, reject);
           }, undefined, reject);
         });
       }

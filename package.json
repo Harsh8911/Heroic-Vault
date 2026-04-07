@@ -14,7 +14,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prestart": "node scripts/generate-model-catalog.js",
     "start": "react-scripts start",
+    "prebuild": "node scripts/generate-model-catalog.js",
     "build": "react-scripts build",
     "verify:unity": "node scripts/verify-unity-data.js",
     "test": "react-scripts test",

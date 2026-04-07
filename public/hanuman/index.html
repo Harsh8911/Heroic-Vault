@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shri Ram | Heroic Vault</title>
+  <title>Hanuman | Heroic Vault</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   
   
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
   
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -63,12 +63,12 @@
         </div>
 
         <aside class="info-side">
-          <h2 class="side-title">Shri Ram</h2>
-          <p class="side-sub">Shri Ram from the Heroic Vault 3D collection.</p>
+          <h2 class="side-title">Hanuman</h2>
+          <p class="side-sub">A heroic devotional figure of strength and service.</p>
           <div class="meta-list">
             <div class="meta-item">
               <strong>Highlight</strong>
-              Digitally preserved model prepared for interactive viewing.
+              Devotion, courage, and unwavering loyalty.
             </div>
             <div class="meta-item">
               <strong>Scene Type</strong>
@@ -76,7 +76,7 @@
             </div>
             <div class="meta-item">
               <strong>File</strong>
-              Ram.OBJ
+              poly.glb
             </div>
           </div>
         </aside>
@@ -86,7 +86,7 @@
     <section class="content-grid">
       <article class="panel">
         <h3>About</h3>
-        <p>Digitally preserved model prepared for interactive viewing.</p>
+        <p>Devotion, courage, and unwavering loyalty.</p>
       </article>
       <article class="panel">
         <h3>Collection</h3>
@@ -102,51 +102,37 @@
   <script src="../model-viewer.js"></script>
   <script>
     HeroicViewer.init({
-      autoRotate: true,
-      snapshotName: "shri-ram",
-      loadModel: function (ctx) {
-        return new Promise(function (resolve, reject) {
-          var textureLoader = new THREE.TextureLoader();
-          var objLoader = new THREE.OBJLoader();
-
-          textureLoader.load("Ram lalla.png", function (texture) {
-            objLoader.load("Ram.OBJ", function (object) {
-              var material = new THREE.MeshStandardMaterial({
-                map: texture,
-                metalness: 0.24,
-                roughness: 0.74,
-                side: THREE.DoubleSide
-              });
-
-              object.traverse(function (child) {
-                if (child && child.isMesh) {
-                  child.material = material;
-                  child.castShadow = true;
-                  child.receiveShadow = true;
-                }
-              });
-
-              var box = new THREE.Box3().setFromObject(object);
-              var center = box.getCenter(new THREE.Vector3());
-              var size = box.getSize(new THREE.Vector3());
-              var maxDim = Math.max(size.x, size.y, size.z);
-              var scale = 6 / maxDim;
-
-              object.position.sub(center);
-              object.scale.setScalar(scale);
-
-              ctx.scene.add(object);
-              ctx.onProgress(100, 'Model ready');
-              resolve(object);
-            }, function (xhr) {
-              if (xhr.total) {
-                ctx.onProgress((xhr.loaded / xhr.total) * 100, 'Loading geometry...');
-              }
-            }, reject);
-          }, undefined, reject);
-        });
-      }
-    });
+    autoRotate: true,
+    snapshotName: "hanuman",
+    loadModel: function (ctx) {
+      return new Promise(function (resolve, reject) {
+        var loader = new THREE.GLTFLoader();
+        loader.load("poly.glb", function (gltf) {
+          var object = gltf.scene || gltf.scenes[0];
+          object.traverse(function (child) {
+            if (child && child.isMesh) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+            }
+          });
+          var box = new THREE.Box3().setFromObject(object);
+          var center = box.getCenter(new THREE.Vector3());
+          var size = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          var scale = 6 / maxDim;
+          object.position.sub(center);
+          object.scale.setScalar(scale);
+          ctx.scene.add(object);
+          ctx.onProgress(100, 'Model ready');
+          resolve(object);
+        }, function (xhr) {
+          if (xhr.total) {
+            ctx.onProgress((xhr.loaded / xhr.total) * 100, 'Loading model...');
+          }
+        }, reject);
+      });
+    }
+  });
   </script>
 </body>
 </html>
