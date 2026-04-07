@@ -1,6 +1,6 @@
 {
   "framework": "create-react-app",
   "installCommand": "npm ci",
-  "buildCommand": "git lfs install && git lfs pull && npm run verify:unity && npm run build",
+  "buildCommand": "if git lfs version >/dev/null 2>&1; then git lfs pull && npm run verify:unity; else echo '[vercel] git lfs not available, skipping unity verification'; fi && npm run build",
   "outputDirectory": "build"
 }
